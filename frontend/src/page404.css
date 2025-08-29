@@ -1,0 +1,47 @@
+.containerImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+@keyframes alive {
+    from {
+        margin-top: 0px;
+    }
+
+    to {
+        margin-top: -100px;
+    }
+}
+
+
+
+.moveUp {
+    animation: 0.7s alive linear forwards
+}
+
+.moveDown {
+    animation: 0.7s alive linear reverse
+}
+
+.text {
+    color: black;
+    font-size: 25px;
+    position: absolute;
+    top: 80vh;
+    left: 39vw;
+    font-family: sans-serif;
+    text-shadow: 2px 2px 10px;
+}
+
+.shadow {
+    border-radius: 100%;
+    width: 1000px;
+    height: 1000px;
+    box-shadow: 0px 0px 30vw gray;
+    position: absolute;
+}

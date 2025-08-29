@@ -1,0 +1,97 @@
+body {
+    background-color: white;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.textContainer {
+    flex-wrap: wrap;
+    width: 300px;
+    height: fit-content;
+    margin: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.myLine {
+    background-color: blue;
+    width: 3px;
+    height: calc(100vh - 130px);
+}
+
+.containerTextAndLine {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: fit-content;
+    background-image: url('images/bubbles.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: 50vw;
+}
+
+.upLineOdot {
+    width: 100vw;
+    height: 130px;
+    background-color: blue;
+}
+
+.columnAll {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.subText {
+    color: white;
+    font-size: 10px;
+    width: fit-content;
+    text-align: center;
+    background-color: transparent;
+    position: relative;
+    top: 45%;
+    left: 15%;
+}
+
+.buttonsContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: fit-content;
+    height: calc(100vh - 130px);
+}
+
+.whatsapp {
+    width: 70px;
+    height: 70px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: rgba(196, 196, 204, 0.733);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gmail {
+    width: 70px;
+    height: 70px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: rgba(196, 196, 204, 0.733);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContact {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.logout {}

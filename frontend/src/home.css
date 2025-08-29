@@ -1,0 +1,144 @@
+.image {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    border-radius: 100%;
+    position: relative;
+    z-index: 2;
+    margin-left: 30px;
+}
+
+body {
+    margin: 0px;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.upLine {
+    width: calc(100vw + 100px);
+    height: 130px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    margin-top: -50px;
+    margin-left: -80px;
+}
+
+.whiteLine {
+    width: calc(100vw + 100px);
+    height: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 5px white;
+    margin-left: -80px;
+}
+
+.allContent {
+    width: calc(100vw - 135px);
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 0px;
+}
+
+.title {
+    color: white;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 2px white;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 100px;
+}
+
+.triangle {
+    position: absolute;
+    width: auto;
+    height: 135px;
+    margin-left: 112px;
+    z-index: 1;
+    margin-top: -3px;
+}
+
+.blueRectangle {
+    background-color: rgb(63, 72, 204);
+    width: 122px;
+    height: 130px;
+    position: absolute;
+    z-index: 1;
+}
+
+.itemMenu {
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    margin-left: 15px;
+}
+
+.seperateLine {
+    width: 2px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(150deg);
+    margin-left: 15px;
+}
+
+.itemMenu:hover {
+    color: black;
+}
+
+.itemMenu:active {
+    color: red;
+}
+
+.myTextHome {
+    color: white;
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleHomeText {
+    color: white;
+    font-size: 20px;
+}
+
+.squares {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin: 30px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 30px;
+}
+
+.squaresContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+.myImageDescription {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}

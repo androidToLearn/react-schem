@@ -1,0 +1,87 @@
+body {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    box-shadow: 0px 0px 20px white;
+    width: 400px;
+    height: 600px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+
+}
+
+.input {
+    width: 90%;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 20px;
+
+}
+
+label {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.icon {
+    position: relative;
+    margin-top: -32px;
+    margin-left: 87%;
+    width: 30px;
+    height: auto;
+}
+
+input::placeholder {
+    color: black;
+}
+
+.btnLogin {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: rgb(0, 102, 255);
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.btnLogin:hover {
+    background-color: rgb(76, 0, 255);
+}
+
+.btnLogin:active {
+    background-color: rebeccapurple;
+}
+
+.btnContainer {
+    margin-top: 30px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    color: red;
+    font-size: 20px;
+    margin: 10px;
+    height: fit-content;
+}

@@ -1,0 +1,9 @@
+services:
+  app:
+    build: . # אם project כולל backend + frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - FLASK_ENV=development

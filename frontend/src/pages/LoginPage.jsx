@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, } from "react"
 import '../login.css'
 import key from '../images/key.png'
 import men from '../images/men.png'
+import { useNavigate } from "react-router-dom"
 
 
 export default function login() {
     //login page
     const [message, setMessage] = useState('');
+    const navigate = useNavigate()
     return (<form className="box" onSubmit={(event) => {
         event.preventDefault()
         let userInput = document.getElementById('user')
@@ -18,6 +20,7 @@ export default function login() {
         }).then(response => response.json()).then(data => {
             if (data['message'] === 'logined!') {
                 document.getElementById('message').style.color = 'green'
+                navigate('/statistics')
             }
             setMessage(data['message'])
             console.log('send message')

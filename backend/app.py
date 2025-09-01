@@ -18,6 +18,7 @@ from srcs.dal_b.Vacation_dao import Vacation_dao
 import os
 from srcs.dal_b.User_dao import User_dao
 import service.HelperCalculating as HelperCalculating
+from srcs.dal_b.Database import Database
 
 
 app = Flask(__name__)
@@ -25,6 +26,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def serve():
+
+    with open('../app/init_d.sql', 'r', encoding='utf-8') as file:
+        Database().getDataBaseConnection().execute(file.read())
+
     return send_from_directory("dist", 'index.html')
 
 
@@ -44,7 +49,6 @@ def doLogin():
         print('name:', user.name, 'password:', user.password)
         if user.name == userPost['name'] and user.password == userPost['password'] and user.id_role == 0:
             BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# נתיב מוחלט לקובץ
             file_path = os.path.join(
                 BASE_DIR, 'data', f'oneUser{str(uuid.getnode())}.json')
 
@@ -184,4 +188,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

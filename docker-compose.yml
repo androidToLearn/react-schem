@@ -7,3 +7,16 @@ services:
       - ./backend:/app
     environment:
       - FLASK_ENV=development
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: newpassword
+      POSTGRES_DB: postgres
+    volumes:
+      - ./backend/init_d.sql:/docker-entrypoint-initdb.d/init.sql

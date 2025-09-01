@@ -125,7 +125,7 @@ export default function statistics() {
 
             <div className='oneRow'>
                 <div className="oneDiagrama">
-                    <div className='boxDiagramaAndTitle'>
+                    <div className='boxDiagramaAndTitle' style={{ paddingBottom: '300px' }}>
                         <p style={{ color: 'white' }} >totalLikes</p>
                         {graphTotalUsersView({ myDataInTotalUsers: myDataInTotalLikes, color: `rgb(11, 163, 183)`, text: ` 100  יש ${myDataInTotalLikes} מיתוך לייקים` })}
                     </div>

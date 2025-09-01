@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'menuPage.html'%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}likes page{%endblock%}</title>
+
+    {%block head_links%}
+    <link rel="stylesheet" href="{{url_for('static' , filename='VacationPage.css')}}">
+    {%endblock%}
+    {%block favicon%}
+
+    <link rel="icon" href="{{url_for('static' , filename='images/iconv.png')}}" type="image/png">
+    {%endblock%}
+
+
+
+</head>
+
+<body>
+    {%block content%}
+    <div style="width: 100vw;height: 100vh;background-color: rgba(95, 92, 92, 0.662);position: absolute;z-index: 100;"
+        id="idGray">
+        <div style="position: absolute;top: calc(50vh - 250px);left: calc(50vw - 300px);width: 600px;height: 350px;background-color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;border: 2px solid black;margin-top: 100px;"
+            class="alertDialog">
+            <div
+                style="background-color: aqua;width: 600px;height: 100px;display: flex;flex-direction: row;align-items: center;">
+                <img src="{{url_for('static' , filename = 'images/blackdel.png')}}" alt="delete"
+                    style="width: auto;height: calc(100% - 30px);">
+                <p style="margin-left: 50%;color: black;font-size: 30px;">delete vacation</p>
+            </div>
+
+            <p style="font-size: 25px;color: black;font-family: Arial, Helvetica, sans-serif;margin: 20px;" id="textQ">
+                would you like
+                to
+                delete the vacation to ?</p>
+
+            <div
+                style="width: fit-content;height: fit-content;display: flex;flex-direction: row;justify-content: center;align-items: center;margin-left: 10px;margin-top: 50px;">
+
+                <div style="font-size: 20px;margin: 5px;padding-left: 30px;padding-right: 30px;" class="cancel"
+                    onclick="hideAlert()">
+                    <p>cancel</p>
+                </div>
+
+
+                <div style="font-size: 20px;margin: 5px;padding-left: 30px;padding-right: 30px;" class="delete"
+                    onclick="clickDelete()">
+                    <p>delete</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: white;width: 300px;height: 300px;position: absolute;z-index: 1;"></div>
+
+    <div style="width: 100%; height: fit-content;position: relative;position: relative;z-index: 10;" id="divAll">
+
+
+        <div style="width: 100vw; height: fit-content; background-color: aqua; display: flex;flex-direction: row;"
+            id="divUp">
+            <div style="text-decoration: none;height: 130px;margin-right: 30px;" class="'o22">
+                <div class="o22">
+                    <div
+                        style="width: 100%;height: fit-content;flex-direction: row;align-items: center;justify-content: center;display: flex;padding-top: 20px; padding-bottom: 8px;">
+                        <img src="{{url_for('static' , filename='images/profile.png')}}"
+                            style="width: 50px;height: auto;">
+                    </div>
+                    <p
+                        style="text-decoration: none; color: black; font-size: 20px; text-shadow: 2px 2px 5px black;text-align: center;margin-top: -8px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                        welcome
+                        {{my_user.name}}</p>
+                </div>
+            </div>
+
+            <div class="search" style="display: flex;flex-direction: column; width: fit-content;height: fit-content;">
+                <div style="display: flex;flex-direction: row; width: fit-content;height: fit-content;">
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">id</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">country</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">description</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">price</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">liked</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">month_start</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">year_start</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                    <div style="width: fit-content;height: fit-content;display: flex;flex-direction: column;">
+                        <button class="button_search">days_vacation</button>
+                        <div class="under_line">
+
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: row; width: fit-content;height: fit-content;">
+                    <input type="text" class="editTextClass" placeholder="vacation id...">
+                    <input type="text" class="editTextClass" placeholder="vacation country...">
+                    <input type="text" class="editTextClass" placeholder="vacation description...">
+                    <input type="text" class="editTextClass" placeholder="vacation maximum price...">
+                    <div class="divLike">
+                        <p>get liked</p> <input type="radio" class="cheackboxclass">
+                        <p>get unliked</p> <input type="radio" class="cheackboxclass">
+                        <p>get liked and unliked</p> <input type="radio" class="cheackboxclass">
+                    </div>
+                    <input type="text" class="editTextClass" placeholder="vacation month_start...">
+                    <input type="text" class="editTextClass" placeholder="vacation year_start...">
+                    <input type="text" class="editTextClass" placeholder="num days of vacation...">
+                    <input type="button" onclick="clickSearchDo()" class="clickSearch" value="search">
+                </div>
+                <p id="m" style="color: blue;">loading... please wait</p>
+                <div style="width: 70px;height: 70px;margin: 5px;margin-bottom: -10px;position: relative;display: flex;justify-content: center;align-items: center;"
+                    id="divClassConic">
+                    <div class="classConic">
+                    </div>
+                    <div
+                        style="width: 50px;height: 50px;background-color: aqua;border-radius: 100%;position: absolute;top: 10px;left: 10px;">
+
+                    </div>
+                </div>
+            </div>
+
+            {%if my_user.id_role == 0%}
+            <a href="{{url_for('goToAddOrUpdateVacation' , vacation_id = -1)}}" class="o2"
+                style="width: 100%; height: 130px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <div style="width: fit-content;height: fit-content;">
+                    <div
+                        style="width: 100%;height: fit-content;flex-direction: row;align-items: center;justify-content: center;display: flex;">
+                        <img src="{{url_for('static' , filename = 'images/image.png')}}"
+                            style="width: 50px;height: auto;">
+                    </div>
+                    <p
+                        style="font-size: 15px; color: black;margin: 0px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;width: 100%;height: fit-content;text-align: center; text-shadow: 2px 2px 5px gray;">
+                        add vacation</p>
+                </div>
+            </a>
+            {%endif%}
+        </div>
+
+        {%if not vacations|length == 0%}
+        <div
+            style="width: 100%;height: 800px;display: inline-block;flex-direction: column;justify-content: center;align-items: center;overflow: auto;transform: scale(0.7);margin-top: -120px;padding-top: 30px;">
+            <div
+                style="width: fit-content;height: fit-content;flex-direction: column;justify-content: baseline;align-items: center;margin-bottom: 100px;background-color:  rgba(128, 128, 128, 0.285);margin-top: -100px;">
+                <!--הדיב הניגלל-->
+                {%for j in range(0 , vacations|length , 3)%}
+
+                <div
+                    style="width: 100%;height: fit-content;display: flex;flex-direction: row;justify-content: start;background-color: rgb(232, 230, 230);margin-top: -50px;background-color: transparent;">
+                    {%for myvacation in range(j , j + 3)%}
+                    {%if myvacation < vacations|length%} <div
+                        style="width: fit-content;height: fit-content;position: relative;display: flex;margin: 10px;justify-content: center;align-items: center;flex-direction: column;position: relative;"
+                        class="vacation"
+                        onclick="clickShowDescription('{{vacations[myvacation]['description']}}' , '{{vacations[myvacation]['image_name']}}' , '{{vacations[myvacation]['country']}}')">
+
+                        {%if my_user.id_role == 0%}
+                        <div style="width: fit-content;height: 30px;position: relative;padding-left: 10px;padding-right: 10px;border-radius: 30px;top: 110px;left: -140px;display: flex;justify-content: center;align-items: center;flex-direction: row;"
+                            class="hoverbuttonvacationGreen"
+                            onclick="click_update_vacation('{{vacations[myvacation]['id']}}' , {%if isHasPermissionToEdit%} true{%else%} false {%endif%})">
+                            <img src="{{ url_for('static' , filename = 'images/edi.png') }}" alt="penceilEdit"
+                                style="width: 20px;height: auto;margin-right: 10px;">
+                            <p style="color: gray;">Edit</p>
+                        </div>
+
+                        <div style="width: fit-content;height: 30px;position: relative;padding-left: 10px;padding-right: 10px;border-radius: 30px;top: 80px;left: -50px;display: flex;justify-content: center;align-items: center;flex-direction: row;"
+                            class="hoverbuttonvacationDelete"
+                            onclick="showAlertDialog({{loop.index0}} , '{{vacations[myvacation]['country']}}' , '{{vacations[myvacation]['id']}}' , {%if isHasPermissionToEdit%} true{%else%} false{%endif%})">
+                            <img src="{{ url_for('static' , filename = 'images/dele.png') }}" alt="penceilEdit"
+                                style="width: 20px;height: auto;margin-right: 10px;">
+                            <p style="color: gray;">Delete</p>
+                        </div>
+
+
+                        {%else%}
+                        {% if not myIsLikes[myvacation]%}
+                        <div style="width: fit-content;height: 30px;position: relative;padding-left: 10px;padding-right: 10px;border-radius: 30px;top: 80px;left: -140px;display: flex;justify-content: center;align-items: center;flex-direction: row;"
+                            class="hoverbuttonvacation"
+                            onclick="doGoodClickOnCheckBoxes( this, {{vacations[myvacation]['id']}}, {{my_user.id}} , {%if isHasPermissionToEdit%} true{%else%} false{%endif%})">
+                            <img src="{{ url_for('static' , filename = 'images/gray.png') }}" alt="penceilEdit"
+                                style="width: 20px;height: auto;margin-right: 10px;">
+                            <p style="color: gray;">Like {{vacations[myvacation]['num_likes']}}</p>
+                        </div>
+                        {%else%}
+                        <div style="width: fit-content;height: 30px;position: relative;padding-left: 10px;padding-right: 10px;border-radius: 30px;top: 80px;left: -140px;display: flex;justify-content: center;align-items: center;flex-direction: row;"
+                            class="hoverbuttonvacationLiked"
+                            onclick="doGoodClickOnCheckBoxes( this, {{vacations[myvacation]['id']}}, {{my_user.id}}  ,{%if isHasPermissionToEdit%} true{%else%} false{%endif%})">
+                            <img src="{{ url_for('static' , filename = 'images/red.png') }}" alt="penceilEdit"
+                                style="width: 20px;height: auto;margin-right: 10px;">
+                            <p style="color: black;">Like {{vacations[myvacation]['num_likes']}}</p>
+                        </div>
+                        <!--the is liked or not liked-->
+                        {%endif%}
+                        <!--the admin or user-->
+                        {%endif%}
+
+                        <div
+                            style="position: relative;top:170px;font-size: 30px;color: white;font-family: Arial, Helvetica, sans-serif;left: -120px;">
+                            {{vacations[myvacation]['country']}}</div>
+                        <img src="{{url_for('get_image' , image_name = vacations[myvacation]['image_name'] )}}"
+                            alt="vacation image" style="width: 400px;height: 200px;border-radius: 5px;">
+                        <div
+                            style="border-top-left-radius: 10px;top: -10px;position: relative;background-color: rgb(6, 214, 241);width: 400px;height: 40px;border-top-right-radius: 10px;display: flex;flex-direction: row;padding-bottom: 20px;">
+                            <img src="{{ url_for('static' , filename = 'images/event.png') }}" alt="imagecalander"
+                                style="width: auto;height: 20px;padding: 8px;margin-left: 20px;">
+                            <p style="width: 100%;height: 100%;margin: 10px;">
+                                {{vacations[myvacation]['date_start']}} - {{vacations[myvacation]['date_end']}}
+                            </p>
+                        </div>
+                        <div style="position: relative;top: -30px;border-top-left-radius: 10px;border-top-right-radius: 10px;width: 400px;height:300px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;overflow: auto;scrollbar-width: 0px;-ms-overflow-style: none;display: flex;flex-direction: row;align-items: center;justify-content: center;background-color: white;margin-bottom: -30px;"
+                            class="scroll_description">
+                            {{vacations[myvacation]['description']}}
+                        </div>
+                        <div
+                            style="background-color: white;width: 100%;height: fit-content;display: flex;justify-content: center;align-items: center;padding-bottom: 20px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+                            <div style="font-size: 20px;color: white;border-radius: 8px;width: fit-content;height: fit-content;padding: 15px;
+                            padding-left: 150px;padding-right: 150px;" class="classPrice">
+                                ${{vacations[myvacation]['price']}}
+                            </div>
+                        </div>
+
+                </div>
+
+                {%endif%}
+                {%endfor%}
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    {%else%}
+    <div
+        style="width: 100%;height: 800px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <p style="color: black;font-size: 30px;">the list empty</p>
+    </div>
+    {%endif%}
+    <div style="background-color: black;width: 100%;height: 300px;"></div>
+    </div>
+    <script>
+        window.gray = "{{url_for('static' , filename = 'images/gray.png')}}";
+        window.red = "{{url_for('static' , filename = 'images/red.png')}}";
+    </script>
+    <script src="{{url_for('static' , filename = 'VacationsPageJavaScript.js')}}"></script>
+    {%endblock%}
+
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}likes page{%endblock%}</title>
+    {%block favicon%}
+    <link rel="icon" href="{{url_for('static' , filename='images/iconv.png')}}" type="image/png">
+
+    {%endblock%}
+    {%block head_links%}
+    <link rel="stylesheet" href="{{url_for('static' , filename='VacationPage.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+
+
+    {%endblock%}
+
+    <style>
+        body {
+            height: 200vh;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        @keyframes rotate360 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(180deg);
+            }
+        }
+
+        .classRotate {
+            animation: rotate360 0.2s linear forwards;
+        }
+
+        .classReverseRotate {
+            animation: rotate360 0.2s linear reverse;
+
+        }
+
+        .classItemMenu {
+            background-color: black;
+            margin-left: 2px;
+            margin-right: 5px;
+        }
+
+
+        .classItemMenu:hover {
+            background-color: white;
+        }
+
+
+        .classConic1 {
+            --progress1: 50;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(rgb(0, 145, 255) 0% calc(var(--progress1) * 1%), white calc(var(--progress1) * 1%) 100%);
+            border-radius: 100%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div style="width: 310px;height: 300px;z-index: 10003;position: absolute;overflow: auto;transform: scale(0.8);left: 140px;margin-top: -80px;"
+        id="block_counries">
+        <div style="width: 310px;height:fit-content;max-width: 300px;display: inline-block;">
+            {%for country in countries%}
+            <div style="border: 1px solid rgb(182, 182, 182);width: 100%;padding: -50px;height: fit-content;text-align: center;cursor: pointer;"
+                class="countryHover">
+                <p>
+                    {{country.name_country}}
+                </p>
+            </div>
+
+            {%endfor%}
+
+        </div>
+    </div>
+    <img src="{{url_for('static' , filename = 'images/calander1.png')}}"
+        style="color:  rgb(197, 187, 187);position: absolute;top: calc(50vh - 93px);left: 370px;font-size: 30px;width: 20px;height: auto;border-radius: 100%;padding: 3px;z-index: 10001;"
+        class="classCalander">
+
+    <img src="{{url_for('static' , filename = 'images/calander1.png')}}"
+        style="color:  rgb(197, 187, 187);position: absolute;top: calc(50vh - 34px);left: 370px;font-size: 30px;width: 20px;height: auto;border-radius: 100%;padding: 3px;z-index: 10001;"
+        class="classCalander">
+    <div style="position: absolute;margin-left: 82%;z-index: 100000;width: fit-content;">
+        <img src="{{url_for('static' , filename = 'images/menu.png')}}" alt="menu"
+            style="width: 50px;height: auto;margin-top: 40px;position: relative;z-index: 4000000001;cursor: pointer;"
+            onclick="clickAnim()" id="image">
+        <div style="position: relative;width: fit-content;height: calc(100vh + 400px);background-color: black;display: none;z-index: 4000000001;top: -400px;flex-direction: column;justify-content: center;align-items: center;cursor: pointer;margin-left: -30px;"
+            id="divMenu">
+            <img src="{{url_for('static' , filename = 'images/whiteClose.png')}}" alt="menu"
+                style="width: 50px;height: auto;position: absolute;z-index: 4000000001;top: 350px;right: 230px;"
+                onclick="clickWhiteClose()" id="image2">
+
+
+
+            {%if not islr or my_user.id_role == 0 %}
+
+            <a href="{{url_for('user_page' , name = my_user.name , second_name = my_user.second_name)}}"
+                style="text-decoration: none;">
+                <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                    class="classItemMenu">
+                    הצגת שם המשתמש
+                </div>
+            </a>
+
+
+            <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                class="classItemMenu" id="divVication">
+                צפייה בדף החופשות
+            </div>
+
+            <a href="{{url_for('out_system')}}" style="text-decoration: none;">
+                <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                    class="classItemMenu">
+                    היתקנתקות
+                </div>
+            </a>
+
+            {%else%}
+
+            <a href="{{url_for('index')}}" style="text-decoration: none;">
+                <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                    class="classItemMenu">
+                    הרשמה(register)
+                </div>
+            </a>
+
+            <a href="{{ url_for('login_page') }}" style="text-decoration: none;">
+                <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                    class="classItemMenu">
+                    היתחברות(login)
+                </div>
+            </a>
+
+
+            <div style="width: 300px;height: fit-content;color: white;font-size: 30px;padding-top: 10px;border: 2px solid white;padding-bottom: 10px;     text-align: center;display: flex;justify-content: center;align-items: center;"
+                class="classItemMenu" id="divNoRLvication">
+                צפייה בדף החופשות ללא ביצוע שינויים
+            </div>
+
+
+            {% endif %}
+
+            <div style="width: 70px;height: 70px;margin: 5px;margin-bottom: -10px;position: relative;display: flex;justify-content: center;align-items: center;margin-top: 20px;"
+                id="divClassConic1">
+                <div class="classConic1">
+                </div>
+                <div
+                    style="width: 50px;height: 50px;background-color: black;border-radius: 100%;position: absolute;top: 10px;left: 10px;">
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+
+        function moveProgress() {
+            //move some progress that appear when I click on search button
+            let classConic1 = document.getElementsByClassName('classConic1')[0];
+            let progress1 = 0;
+            setInterval(() => {
+                classConic1.style.setProperty('--progress1', progress1);
+                progress1 += 5;
+                progress1 = progress1 % 101;
+            }, 100);
+        }
+
+
+
+        let isClicked1 = false;
+        let image123 = null;
+        let imageClose = null;
+
+        let divsItemMenus = document.getElementsByClassName('classItemMenu');
+        document.addEventListener('DOMContentLoaded', () => {
+
+            moveProgress();
+
+            let divClassConic1 = document.getElementById('divClassConic1');
+            divClassConic1.style.display = 'none';
+
+
+
+
+            isClicked1 = false;
+            image123 = document.getElementById('image');
+            imageClose = document.getElementById('image2');
+
+            divsItemMenus = document.getElementsByClassName('classItemMenu');
+            for (let i = 0; i < divsItemMenus.length; i++) {
+                divsItemMenus[i].addEventListener('mouseover', () => {
+                    console.log('inside');
+                    divsItemMenus[i].style.color = 'black';
+                })
+            }
+
+            for (let i = 0; i < divsItemMenus.length; i++) {
+                divsItemMenus[i].addEventListener('mouseout', () => {
+                    console.log('inside');
+                    divsItemMenus[i].style.color = 'white';
+                })
+            }
+
+            image123.addEventListener('animationend', () => {
+                imageClose.classList.remove('classReverseRotate')
+                void imageClose.offsetWidth;
+                openWindow();
+
+            })
+
+            imageClose.addEventListener('animationend', () => {
+                image123.classList.remove('classRotate')
+                void image123.offsetWidth;
+                closeWindow();
+
+            })
+
+        });
+
+
+        function clickWhiteClose() {
+
+
+            imageClose.classList.add('classReverseRotate')
+        }
+
+        function clickAnim() {
+
+            console.log('inside')
+
+            image123.classList.add('classRotate');
+        }
+
+        function closeWindow() {
+            isClicked1 = false;
+            let divMenu = document.getElementById('divMenu');
+            divMenu.style.display = 'none'
+
+        }
+
+        function openWindow() {
+            console.log('open window')
+            isClicked1 = true;
+
+            let divMenu = document.getElementById('divMenu');
+            divMenu.style.display = 'flex'
+
+        }
+
+    </script>
+
+    <div style="position: absolute;z-index: 10000;">
+        {%block content%}
+        {%endblock%}
+    </div>
+
+
+
+
+
+</body>
+
+</html>

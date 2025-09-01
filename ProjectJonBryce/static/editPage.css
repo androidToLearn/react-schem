@@ -1,0 +1,228 @@
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.classConic {
+    --progress1: 50;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(rgb(0, 145, 255) 0% calc(var(--progress1) * 1%), white calc(var(--progress1) * 1%) 100%);
+    border-radius: 100%;
+}
+
+.my_edits_class {
+    width: fit-content;
+    height: fit-content;
+    background-color: aqua;
+    border: 2px solid blue;
+    border-radius: 30px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.my_edits_class form input[type='text'] {
+    border: 2px solid blue;
+    border-radius: 30px;
+    width: 300px;
+    height: fit-content;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.my_edits_class form input[type='submit'] {
+    border: 2px solid black;
+    background-color: green;
+    width: 200px;
+    height: fit-content;
+    font-size: 30px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.my_edits_class form input[type='submit']:hover {
+    border: 2px solid black;
+    background-color: yellowgreen;
+}
+
+.my_edits_class form textarea {
+    border: 2px solid blue;
+    border-radius: 30px;
+    width: 300px;
+    height: fit-content;
+    font-size: 18px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.my_edits_class form input[type='text']:hover {
+    border: 2px solid rgb(197, 187, 187);
+}
+
+.my_edits_class form textarea:hover {
+    border: 2px solid rgb(197, 187, 187);
+}
+
+
+.pika-single {
+    z-index: 990000000 !important;
+    /* גבוה יותר מכל שאר האלמנטים */
+}
+
+.classCalander {
+    background-color: white;
+    cursor: pointer;
+    z-index: 4000000001;
+}
+
+.classCalander:hover {
+    background-color: rgba(128, 128, 128, 0.221);
+}
+
+
+.add_black_boarder {
+    border: 2px solid black;
+}
+
+.my_relative {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+.padding_class {
+    width: fit-content;
+    height: fit-content;
+    padding-top: 1vh;
+    padding-left: 10vw;
+    position: absolute;
+}
+
+.mainrelative {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to left, black, gray);
+}
+
+.ab_img {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 23vw;
+}
+
+.my_shadow {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left, gray, rgba(128, 128, 128, 0.292));
+    top: 8px;
+    left: 8px;
+    position: absolute;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.c label {
+    margin-top: 10px;
+    color: gray;
+    width: 100%;
+    text-align: start;
+    margin-left: 20px;
+}
+
+.c input[type='text'] {
+    padding: 6px;
+    margin: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.285);
+    outline: none;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.c textarea {
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 1);
+}
+
+.classC {
+    transform: scale(0.7);
+}
+
+.c input[type='text']:hover {
+    border: 1px solid blue;
+}
+
+.c textarea:hover {
+    border: 1px solid blue;
+}
+
+.c input[type='text']:focus {
+    border: 1px solid blue;
+}
+
+.c textarea:focus {
+    border: 1px solid blue;
+}
+
+.filechooselabel {
+    background-color: rgba(95, 125, 145, 0.585);
+}
+
+.filechooselabel:hover {
+    background-color: rgb(95, 125, 145);
+}
+
+.imageC {
+    width: calc(100% - 13px);
+    height: 150px;
+    margin-left: 6px;
+    border-radius: 5px;
+}
+
+.imageC2 {
+    width: 100px;
+    height: auto;
+    margin-left: 6px;
+    border-radius: 5px;
+}
+
+.updateClass {
+    background-color: rgb(0, 145, 255);
+}
+
+.updateClass:hover {
+    background-color: rgb(0, 34, 255);
+}
+
+.cancelClass {
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+}
+
+.cancelClass:hover {
+    background-color: gray;
+    color: white;
+    border: 1px solid white;
+}
+
+.countryHover {
+    background-color: white;
+    color: gray;
+    font-size: 15px;
+}
+
+.countryHover:hover {
+    background-color: gray;
+    color: black;
+}

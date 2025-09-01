@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'menuPage.html'%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}edit vacation{%endblock%}</title>
+    {%block head_links%}
+    <link rel="stylesheet" href="{{url_for('static' , filename='editPage.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+
+    {%endblock%}
+    {%block favicon%}
+    <link rel="icon" href="{{url_for('static' , filename='images/iconv.png')}}" type="image/png">
+    {%endblock%}
+
+</head>
+
+<body>
+
+    {%block content%}
+
+    <script>
+        let image3 = document.getElementById('image');
+        image3.src = "{{url_for('static' , filename= 'images/whitemenu.png')}}"
+    </script>
+
+    <div style="display: flex;flex-direction:row; width: 100%;">
+        <div class="mainrelative">
+            <div class="padding_class">
+                <div class="classC">
+
+                    <div class="classShadow" style="width: 700px;height: 950px;  position: absolute;z-index: 300;background: linear-gradient(to top , gray , rgb(83, 80, 80));z-index: 2;width: 410px;
+                        top:-20px;
+                        left: -13px;">
+                    </div>
+                    <div class="c1"
+                        style="display: flex;flex-direction: column;position: absolute;z-index: 4;background-color: white;top: 0px;padding: 30px;justify-content: center;align-items: center;">
+                        <h1 style="color: rgb(0, 145, 255);">
+                            {%if vacation.id|trim=='' %}Add Vacation {%else%} Update Vacation
+                            {%endif%}
+                        </h1>
+                        <form class="c" {%if vacation.id|trim=='' %} action="/upload_image/-1" {%else%}
+                            action="/upload_image/{{vacation.id}}" {%endif%} method="post" id="myForm"
+                            enctype="multipart/form-data"
+                            style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                            <label for="country">country</label>
+                            <input type="text" name="country" placeholder="name country..." {%if country_name==None %}
+                                value="" {%else%} value="{{country_name}}" {%endif%} id="country">
+                            <img src="{{url_for('static' , filename = 'images/down.png')}}"
+                                style="width: 30px; position: relative;height: auto;top: -30px;left: 120px;"
+                                id="image_arrow">
+
+                            <label for="description">description</label>
+
+                            <textarea name="description" placeholder="description vacation..." rows="5" cols="40"
+                                value="{{vacation.description}}" id="description"
+                                style="padding-right: 50px;width: 260px;">{{vacation.description}}</textarea>
+                            <label for="date_start">start_on</label>
+
+                            <input type="text" name="date_start" placeholder="date start..."
+                                value="{{vacation.date_start}}" id="date_start"
+                                style="padding-right: 50px;width: 260px;">
+                            <label for="date_end">end_on</label>
+                            <input type="text" name="date_end" placeholder="date end..." value="{{vacation.date_end}}"
+                                id="date_end" style="padding-right: 50px;width: 260px;">
+
+                            <label for="price">price</label>
+                            <p
+                                style="color:  rgb(197, 187, 187);position: absolute;top: calc(50vh + 142px);left: 50px;font-size: 30px;">
+                                $</p>
+                            <input type="text" name="price" placeholder="price..."
+                                style="padding-left: 50px;width: 260px;" value="{{vacation.price}}" id="price">
+                            <label for="file">cover image</label>
+
+                            <input type="file" name="file" accept="image/*"
+                                style="display: none;z-index: 300;position: absolute;" id="file">
+
+                            {%if vacation.image_name|trim != ''%}
+                            <img src="{{url_for('get_image' , image_name=vacation.image_name)}}" class="imageC"
+                                alt="image vacation" id="imageC">
+                            {%else%}
+                            <div style="width: 310px;height: 150px;z-index: 50;border: 1px solid rgba(128, 128, 128, 0.285);display: flex;justify-content: center;align-items: center;"
+                                id="divImageC">
+                                <img src="{{url_for('static' , filename='images/imagedef.png')}}" class="imageC2"
+                                    alt="image vacation" id="imageC">
+                            </div>
+                            {%endif%}
+
+
+                            <label for="file"
+                                style="width:200px;height: 40px;z-index: 300;margin-left: -10px;border-radius: 8px;font-size: 18px;text-align: center;display: flex;justify-content: center;align-items: center;margin-top: -100px;margin-bottom: 60px;"
+                                class="filechooselabel">
+                                <p style="color: white;text-align: center;">Select
+                                    Image</p>
+                            </label>
+
+                            <p id="message" style="color: red;margin: 5px;margin-left: -60px;"></p>
+
+                            <div style="width: 70px;height: 70px;margin: 5px;margin-bottom: -10px;position: relative;display: flex;justify-content: center;align-items: center;"
+                                id="divClassConic">
+                                <div class="classConic">
+                                </div>
+                                <div
+                                    style="width: 50px;height: 50px;background-color: white;border-radius: 100%;position: absolute;top: 10px;left: 10px;">
+
+                                </div>
+                            </div>
+                            <input type="button" {%if vacation.id|trim=='' %}value="Add" {%else%}value="Update"
+                                {%endif%}
+                                style="width: 315px;color: white;height: fit-content;font-size: 20px;padding: 10px;outline: none;border: none;margin-top: 30px;border-radius: 5px;margin-bottom: -10px;"
+                                {%if vacation.id|trim=='' %} onclick="clickUpdate('-1')" {%else%}
+                                onclick="clickUpdate('{{vacation.id}}')" {%endif%} class="updateClass">
+                            <input type="button" value="cancel"
+                                style="width: 315px;height: fit-content;font-size: 25px;padding: 10px;margin-top: 30px;font-size: 20px;border-radius: 5px;"
+                                onclick="clickCancel()" class="cancelClass">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="ab_img">
+                <img src="{{url_for('static' , filename = 'images/likes_edit.png')}}">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+        {%if vacation.id | trim == '' %} window.isUpdate = false;
+        {%else%}
+        window.isUpdate = true;
+        {% endif %}
+        window.down = "{{url_for('static' , filename = 'images/down.png')}}";
+        window.up = "{{url_for('static' , filename = 'images/up.png')}}";
+        window.countriesJson = {{ countriesJson | safe }};
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+
+    <script>
+        window.pikaday_start = new Pikaday({
+            field: document.getElementById('date_start'),
+            format: 'DD-MM-YYYY',
+            i18n: {
+                previousMonth: 'חודש קודם',
+                nextMonth: 'חודש הבא',
+                months: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+                weekdays: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+                weekdaysShort: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']
+            },
+            firstDay: 0
+        });
+
+        window.pikaday_end = new Pikaday({
+            field: document.getElementById('date_end'),
+            format: 'DD-MM-YYYY',
+            i18n: {
+                previousMonth: 'חודש קודם',
+                nextMonth: 'חודש הבא',
+                months: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'],
+                weekdays: ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'],
+                weekdaysShort: ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש']
+            },
+            firstDay: 0
+        });
+
+    </script>
+
+    <script src="{{url_for('static' , filename='editPageJavaScript.js')}}"></script>
+
+    {%endblock%}
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'menuPage.html'%}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{{title}}{%endblock%}</title>
+    {%block favicon%}
+    <link rel="icon" href="{{url_for('get_image' , image_name = image_name)}}">
+    {%endblock%}
+    {%block head_links%}
+    <link rel="stylesheet" href="description.css">
+    {%endblock%}
+
+</head>
+
+<body>
+
+
+    {%block content%}
+    <script>
+        let image3 = document.getElementById('image');
+        image3.src = "{{url_for('static' , filename= 'images/whitemenu.png')}}"
+    </script>
+    <img src="{{url_for('get_image' , image_name = image_name )}}" alt="vacation image"
+        style="width: 100vw;height: 400px;border-radius: 5px;">
+    <p style="color: black;font-size: 25px;width: 100%;text-align: end;margin-left: -50px;">
+        {{description}}</p>
+
+    <script>
+        //scroll down 300 in enter to the page
+        window.scrollTo({
+            top: 300,
+            behavior: 'smooth'
+        })
+
+
+
+        //על מנת שלא יסתיר דברים חשובים ולחיצות block_countries מהmenu
+        document.getElementById('block_counries').style.display = 'none';
+
+        //הסתרת היומנים מהmenu
+        let classCalanderSource = document.getElementsByClassName('classCalander');
+        for (let i = 0; i < classCalanderSource.length; i++) {
+            classCalanderSource[i].style.display = 'none';
+        }
+
+        let divClassConic1 = document.getElementById('divClassConic1');
+        divClassConic1.style.display = 'none';
+
+
+        try {
+            //טוען את התפריט לחופשות
+            let divVication = document.getElementById('divVication');
+            divVication.addEventListener('click', () => {
+                divClassConic1.style.display = 'block';
+
+
+                console.log('go to page 2')
+
+                fetch('/in_like_page').then(response => response.json()).then(data => {
+                    window.location.href = '/go_to_page2';
+                    console.log('in page 2')
+                    divClassConic1.style.display = 'none';
+
+                });
+            })
+
+        }
+        catch (error) {
+            //טוען תפריט לחופשות בלי הרשמה למערכת
+            let divNoRLvication = document.getElementById('divNoRLvication');
+            divNoRLvication.addEventListener('click', () => {
+                divClassConic1.style.display = 'block';
+
+
+                console.log('go to page 2 without permission')
+                fetch('/in_like_page').then(response => response.json()).then(data => {
+                    window.location.href = '/go_to_vacation_page_without_login_or_register';
+                    console.log('in page 2 without permission')
+                    divClassConic1.style.display = 'none';
+
+
+
+                });
+            })
+        }
+
+        setTimeout(() => {
+            document.body.style.overflow = 'auto'
+        }, 1000)
+    </script>
+    {%endblock%}
+</body>
+
+
+</html>

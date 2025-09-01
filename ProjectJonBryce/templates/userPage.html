@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+{%extends 'menuPage.html'%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{{name}} {{second_name}}{%endblock%}</title>
+    {%block head_links%}
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'name.css')}}">
+    {%endblock%}
+</head>
+
+<body>
+    {%block content%}
+
+
+    <div class="mainDiv" style="background-color: blue;position: absolute;z-index: 100;">
+        <img src="{{url_for('static' , filename = 'images/profile.png')}}"
+            style="width: 100px;height: auto;border: 2px solid blue;border-radius: 100%;">
+        <h1 style="color: black;font-size: 30px;font-family:cursive;">welcome {{name}}
+            {{second_name}}</h1>
+        <p style="font-size: 20px;max-width: 100px;text-align: center;">שלום ,תן את חוות דעתך על החופשות ראה אלו חופשות
+            הכי מוצלחות ,שימוש
+            מהנה ומוצלח</p>
+    </div>
+    <div style="width: 100vw;height: 100vh;position: absolute;z-index: 300000;" id="idBubblesDiv">
+
+    </div>
+    <script>
+        //על מנת שלא יסתיר דברים חשובים ולחיצות block_countries מהmenu
+        document.getElementById('block_counries').style.display = 'none';
+
+        //הסתרת היומנים מהmenu
+        let classCalanderSource = document.getElementsByClassName('classCalander');
+        for (let i = 0; i < classCalanderSource.length; i++) {
+            classCalanderSource[i].style.display = 'none';
+        }
+
+        //כאן אני יוצר את הבועות בלחיצה על המסך
+        let array = [];
+        setInterval(() => {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i]['isActive']) {
+                    let intY = parseInt(array[i]['bubble'].style.top);
+                    array[i]['bubble'].style.top = intY - 5 + 'px';
+
+
+                }
+
+
+                if ((parseInt(array[i]['bubble'].style.top) < -100)) {
+                    array[i]['isActive'] = false;
+                }
+            }
+        }, 30);
+        document.addEventListener('click', (event) => {
+            let x = event.clientX;
+            let y = event.clientY;
+            for (let i = 0; i < 10; i++) {
+                let element = document.createElement('div');
+                element.classList.add('classBubble');
+                element.style.top = y + random() + 'px';
+                element.style.left = x + random() + 'px';
+                if (parseInt(Math.random() * 2) == 0) {
+                    element.style.backgroundColor = 'yellow';
+                }
+                else {
+                    element.style.backgroundColor = 'white'
+                }
+                document.getElementById('idBubblesDiv').appendChild(element);
+                array.push({ 'isActive': true, 'bubble': element });
+            }
+        })
+
+        function random() {
+            let random = Math.random() * 100;
+            random -= 50;
+            return random;
+        }
+
+
+        let divClassConic1 = document.getElementById('divClassConic1');
+        divClassConic1.style.display = 'none';
+
+        try {
+            //טוען את התפריט לחופשות
+            let divVication = document.getElementById('divVication');
+            divVication.addEventListener('click', () => {
+                divClassConic1.style.display = 'block';
+                console.log('go to page 2')
+
+                fetch('/in_like_page').then(response => response.json()).then(data => {
+                    window.location.href = '/go_to_page2';
+                    console.log('in page 2')
+                    divClassConic1.style.display = 'none';
+                });
+            })
+
+        }
+        catch (error) {
+            //טוען תפריט לחופשות בלי הרשמה למערכת
+            let divNoRLvication = document.getElementById('divNoRLvication');
+            divNoRLvication.addEventListener('click', () => {
+                divClassConic1.style.display = 'block';
+
+                console.log('go to page 2 without permission')
+                fetch('/in_like_page').then(response => response.json()).then(data => {
+                    window.location.href = '/go_to_vacation_page_without_login_or_register';
+                    console.log('in page 2 without permission')
+                    divClassConic1.style.display = 'none';
+
+
+                });
+            })
+        }
+    </script>
+    {%endblock%}
+</body>
+
+</html>

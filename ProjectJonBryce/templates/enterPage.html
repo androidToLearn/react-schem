@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'menuPage.html'%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}enter page{%endblock%}</title>
+    {%block head_links%}
+    <link rel="stylesheet" href="{{url_for('static' , filename= 'enterAndLoginPage.css')}}">
+    {%endblock%}
+    {%block favicon%}
+    <link rel="icon" href="{{url_for('static' , filename='images/profile.png')}}" type="image/png">
+    {%endblock%}
+
+</head>
+
+<body>
+
+
+    {%block content%}
+    <div style="position: relative; ">
+
+        <div class="mainDiv" style="position: absolute;">
+            <div class="classMyMainSHadow">
+
+                <div class="classC">
+
+                    <div class="classShadow" style="position: absolute; z-index: 2;"></div>
+                    <div class="c1">
+                        <h1 style="color: rgb(0, 145, 255);margin-top: 30px;">
+                            Register
+                        </h1>
+
+                        <div class="c">
+                            <label for="name">name</label>
+                            <input type="text" name="name" placeholder="name" style="width: 300px;" id="name">
+                            <label for="second_name">second_name</label>
+                            <input type="text" name="second_name" placeholder="second_name" style="width: 300px;"
+                                id="second_name">
+                            <label for="password">password</label>
+
+                            <input type="text" name="password" placeholder="password" style="width: 300px;"
+                                id="password">
+                            <label for="email">email</label>
+
+                            <input type="text" name="email" placeholder="email" style="width: 300px;" id="email">
+                            <p id="message" style="color: red;margin: 5px;margin-left: -225px;display: block;">fill all
+                                fields
+                            </p>
+
+                            <div style="width: 100px;height: 100px;margin: 5px;margin-bottom: -10px;position: relative;display: flex;justify-content: center;align-items: center;"
+                                id="divClassConic">
+                                <div class="classConic">
+                                </div>
+                                <div
+                                    style="width: 70px;height: 70px;background-color: white;border-radius: 100%;position: absolute;top: 15px;left: 15px;">
+
+                                </div>
+                            </div>
+
+                            <input type="submit" value="register"
+                                style="width: 315px;color: white;height: fit-content;font-size: 25px;padding: 10px;outline: none;border: none;margin-top: 30px;"
+                                onclick="clickClassEnter()" class="registerHover">
+                            <p style="margin: 20px;color: gray;">already have an account?</p>
+                            <a href="{{ url_for('login_page') }}"
+                                style="position: relative;top: -10px;color: rgb(0, 145, 255);">login
+                                page</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pas"></div>
+        </div>
+        <img src="{{url_for('static' , filename='images/likes.png' )}}"
+            style="position:absolute; width: 100vw; height: 100vh; z-index: 1;">
+    </div>
+
+    <script src="{{url_for('static' , filename='enterAndLoginPageJavaScript.js')}}"></script>
+    {%endblock%}
+</body>
+
+
+</html>

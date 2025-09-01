@@ -1,0 +1,218 @@
+.o:hover {}
+
+.o {
+    border: 4px solid aqua;
+    border-radius: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    padding: 10px;
+}
+
+.goodz {
+    z-index: 9;
+}
+
+.o2:hover {
+    background-color: rgba(128, 128, 128, 0.447);
+}
+
+.o2 {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    align-self: stretch;
+}
+
+.o22 {
+    width: 130px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.o22:hover {
+    background-color: rgba(128, 128, 128, 0.447);
+}
+
+.search {
+    width: 300px;
+    height: fit-content;
+    font-size: 20px;
+}
+
+.vacation {}
+
+.cancel {
+    background-color: white;
+    color: gray;
+}
+
+.cancel:hover {
+    background-color: gray;
+    color: black;
+}
+
+.delete {
+    border: 2px solid aqua;
+    color: aqua;
+
+}
+
+.delete:hover {
+    background-color: aqua;
+    color: white;
+}
+
+.clickSearch {
+    width: 100px;
+    height: fit-content;
+    border-radius: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: none;
+    outline: none;
+    border: none;
+    background: linear-gradient(to top, white, blue);
+    padding: 5px;
+    margin: 5px;
+}
+
+.clickSearch:hover {
+    background: linear-gradient(to top, blue, blue);
+}
+
+.clickSearch:active {
+    background: linear-gradient(to top, red, red);
+}
+
+.editTextClass {
+    height: fit-content;
+    margin: 5px;
+    border: 1px solid black;
+    outline: none;
+    width: 300px;
+}
+
+.editTextClass:focus {
+    border: 1px solid red;
+}
+
+.cheackboxclass {}
+
+.button_search {
+    width: 100px;
+    height: fit-content;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.under_line {
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+}
+
+.divLike {}
+
+.divLike p {
+    font-size: 10px;
+    margin: 0px;
+}
+
+.cheack123 {}
+
+.numlikesText {}
+
+.classConic {
+    --progress1: 50;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(rgb(0, 145, 255) 0% calc(var(--progress1) * 1%), white calc(var(--progress1) * 1%) 100%);
+    border-radius: 100%;
+}
+
+.alertDialog {}
+
+body {
+    margin: 0px;
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll_description {}
+
+.scroll_description::-webkit-scrollbar {
+    display: none;
+}
+
+.hoverbuttonvacation {
+    background-color: whitesmoke;
+}
+
+.hoverbuttonvacationLiked {
+    background-color: rgb(255, 197, 196);
+}
+
+.hoverbuttonvacation:hover {
+    background-color: rgb(199, 195, 195);
+}
+
+.hoverbuttonvacationLiked:hover {
+    background-color: rgb(199, 195, 195);
+}
+
+.classPrice {
+    background-color: rgb(6, 135, 241);
+}
+
+.classPrice:hover {
+    background-color: rgb(5, 85, 150);
+}
+
+.hoverbuttonvacationGreen {
+    background-color: whitesmoke;
+
+}
+
+.hoverbuttonvacationDelete {
+    background-color: whitesmoke;
+
+}
+
+.hoverbuttonvacationDelete:hover {
+    background-color: rgb(199, 195, 195);
+
+}
+
+.hoverbuttonvacationGreen:hover {
+    background-color: rgb(199, 195, 195);
+
+}
+
+.hoverbuttonvacationDelete:active {
+    background-color: red;
+}
+
+.hoverbuttonvacationGreen:active {
+    background-color: green;
+}

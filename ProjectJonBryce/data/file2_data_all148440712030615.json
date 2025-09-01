@@ -1,0 +1,137 @@
+{
+    "vacations": [
+        {
+            "id": 10,
+            "num_likes": 0,
+            "country": "Antarctica",
+            "description": "\u05d4\u05db\u05d9 \u05e7\u05e8",
+            "date_start": "10.07.2026",
+            "date_end": "10.12.2026",
+            "price": 5500,
+            "image_name": "icon21.jpg"
+        },
+        {
+            "id": 4,
+            "num_likes": 1,
+            "country": "Slovakia",
+            "description": "\u05e0\u05d5\u05e4\u05d9\u05dd \u05de\u05e8\u05d4\u05d9\u05d1\u05d9\u05dd \u05d1\u05e1\u05dc\u05d5\u05d1\u05e7\u05d9\u05d4",
+            "date_start": "10.09.2026",
+            "date_end": "10.10.2026",
+            "price": 5000,
+            "image_name": "icon22.jpg"
+        },
+        {
+            "id": 7,
+            "num_likes": 0,
+            "country": "China",
+            "description": "\u05d8\u05d9\u05d5\u05dc \u05dc\u05de\u05d3\u05d9\u05e0\u05d4 \u05d4\u05d2\u05d3\u05d5\u05dc\u05d4 \u05d1\u05e2\u05d5\u05dc\u05dd",
+            "date_start": "10.09.2026",
+            "date_end": "29.09.2026",
+            "price": 8000,
+            "image_name": "icon26.jpg"
+        },
+        {
+            "id": 6,
+            "num_likes": 0,
+            "country": "India",
+            "description": "\u05de\u05e1\u05e2 \u05dc\u05d4\u05d5\u05d3\u05d5",
+            "date_start": "01.10.2026",
+            "date_end": "20.10.2026",
+            "price": 4000,
+            "image_name": "icon24.jpg"
+        },
+        {
+            "id": 1,
+            "num_likes": 0,
+            "country": "Bulgaria",
+            "description": "\u05d7\u05d5\u05e4\u05e9\u05ea \u05d4\u05d7\u05dc\u05d5\u05de\u05d5\u05ea",
+            "date_start": "10.10.2026",
+            "date_end": "10.12.2026",
+            "price": 10000,
+            "image_name": "icon18.jpg"
+        },
+        {
+            "id": 2,
+            "num_likes": 0,
+            "country": "USA",
+            "description": "\u05d1\u05d9\u05d6\u05e0\u05e1",
+            "date_start": "10.10.2026",
+            "date_end": "10.12.2026",
+            "price": 4000,
+            "image_name": "icon19.jpg"
+        },
+        {
+            "id": 3,
+            "num_likes": 0,
+            "country": "Israel",
+            "description": "\u05d0\u05e8\u05e5 \u05d4\u05e7\u05d5\u05d3\u05e9",
+            "date_start": "10.10.2026",
+            "date_end": "29.10.2026",
+            "price": 3000,
+            "image_name": "icon21.jpg"
+        },
+        {
+            "id": 9,
+            "num_likes": 0,
+            "country": "Bulgaria",
+            "description": "\u05d8\u05d9\u05d5\u05dc \u05e2\u05dd \u05e0\u05d5\u05e3 \u05d4\u05e8\u05e8\u05d9",
+            "date_start": "10.10.2026",
+            "date_end": "10.12.2026",
+            "price": 9000,
+            "image_name": "icon21.jpg"
+        },
+        {
+            "id": 11,
+            "num_likes": 0,
+            "country": "Bulgaria",
+            "description": "\u05e6\u05d0\u05d5 \u05dc\u05d2\u05dc\u05d5\u05ea \u05d1\u05e2\u05dc\u05d9 \u05d7\u05d9\u05d9\u05dd \u05de\u05e8\u05d4\u05d9\u05d1\u05d9\u05dd \u05d5\u05d8\u05d1\u05e2 \u05e4\u05e8\u05d0\u05d9",
+            "date_start": "10.10.2026",
+            "date_end": "10.12.2026",
+            "price": 100,
+            "image_name": "icon21.jpg"
+        },
+        {
+            "id": 12,
+            "num_likes": 0,
+            "country": "Bulgaria",
+            "description": "\u05d7\u05d5\u05e4\u05e9\u05ea \u05d0\u05e7\u05e1\u05d8\u05e8\u05d9\u05dd",
+            "date_start": "10.10.2026",
+            "date_end": "10.11.2026",
+            "price": 200,
+            "image_name": "icon26.jpg"
+        },
+        {
+            "id": 8,
+            "num_likes": 0,
+            "country": "USA",
+            "description": "\u05d7\u05d5\u05e4\u05e9\u05d4 \u05e2\u05dc \u05d4\u05d9\u05dd",
+            "date_start": "01.11.2026",
+            "date_end": "09.11.2026",
+            "price": 9000,
+            "image_name": "back1_2.jpg"
+        }
+    ],
+    "myIsLikes": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    ],
+    "my_user": {
+        "m": [
+            -1,
+            "undefined",
+            "",
+            "",
+            "",
+            1
+        ]
+    }
+}

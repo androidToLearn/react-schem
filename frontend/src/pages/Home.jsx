@@ -40,7 +40,9 @@ export default function Home() {
                     }}>LogOut</div>
                 }
                 <div className='seperateLine'></div>
-                {!isLogined ? <Link to="/login" className='itemMenu'>Statistics</Link> : <Link to="/statistics" className='itemMenu'>Statistics</Link>}
+                {!isLogined ? <Link to="/login" className='itemMenu' onClick={() => {
+                    alert('אינך מחובר')
+                }}>Statistics</Link> : <Link to="/statistics" className='itemMenu'>Statistics</Link>}
 
                 {!isLogined ? <img src={notLogined} /> : <div />}
                 <div className='seperateLine'></div>

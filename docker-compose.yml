@@ -10,11 +10,11 @@ services:
     depends_on:
       - db
   app1:
-    build: ./ProjectJonBryce1
+    build: ./ProjectJonBryce
     ports:
       - "8000:8000"
     volumes:
-      - ./ProjectJonBryce1:/app
+      - ./ProjectJonBryce:/app
     environment:
       - FLASK_ENV=development
     depends_on:

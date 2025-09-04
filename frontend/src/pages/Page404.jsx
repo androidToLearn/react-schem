@@ -24,6 +24,8 @@ export default function page404() {
     //מחזיר דף 404
 
     useEffect(() => {
+        fetch('../api/not_404')
+
         let image = document.getElementById('imageAlive')
         doAnimation(image)
     }, [])

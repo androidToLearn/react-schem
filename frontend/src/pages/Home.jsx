@@ -13,19 +13,20 @@ import { useLocation } from "react-router-dom";
 
 export default function Home() {
     const location = useLocation();
-    const navigator1 = useNavigate();
+    const navigator = useNavigate();
 
-    fetch('../' + location.pathname).then(res => {
-        console.log(location.pathname)
-        if (!res.ok) {
-            navigator1('/404')
-        }
-    })
+
     //home page
     const [isLogined, setIsLogined] = useState(false)
 
     useEffect(() => {
-
+        fetch('../api/isfile404found').then(res => {
+            return res.json()
+        }).then(data => {
+            if (data['is404']) {
+                navigator('/404')
+            }
+        })
 
         fetch('../api/hasLogined').then(response => response.json()).then(data => {
             console.log(data)

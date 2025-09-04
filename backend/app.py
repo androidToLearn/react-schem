@@ -186,9 +186,34 @@ def logout():
 
 @app.errorhandler(404)
 def not_found(e):
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    file_path = os.path.join(
+        BASE_DIR, 'data', f'is404{str(uuid.getnode())}.json')
+    with open(file_path, 'w') as file:
+        json.dump({'is': True}, file, indent=4)
     return send_from_directory('dist', 'index.html')
 
 
-if __name__ == '__main__':
+@app.route('/api/not_404')
+def not_404():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+    file_path = os.path.join(
+        BASE_DIR, 'data', f'is404{str(uuid.getnode())}.json')
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    return jsonify({})
+
+
+@app.route('/api/isfile404found')
+def isfile404found():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    file_path = os.path.join(
+        BASE_DIR, 'data', f'is404{str(uuid.getnode())}.json')
+    return jsonify({'is404': os.path.exists(file_path)})
+
+
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

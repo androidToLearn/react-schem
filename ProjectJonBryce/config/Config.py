@@ -1,0 +1,7 @@
+DATABASE_PASSWORD = "newpassword"
+DATABASE_HOST = 'db'
+DATABASE_DBNAME = 'postgres'
+DATABASE_USER = 'postgres'
+DATABASE_PORT = '5432'
+
+DATABASE_TEST_DBNAME = 'tests'

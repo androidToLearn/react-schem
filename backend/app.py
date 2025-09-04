@@ -26,10 +26,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def serve():
-
-    with open('../app/init_d.sql', 'r', encoding='utf-8') as file:
-        Database().getDataBaseConnection().execute(file.read())
-
     return send_from_directory("dist", 'index.html')
 
 
@@ -151,6 +147,7 @@ def getFutureLikes():
     if not nextTime['days'] == -1:
         days += nextTime['days']
 
+    # הזמן שעבר אם יש זמן בין רישום חופשה אחת לשנייה
     avgTimeToNewVacation = HelperCalculating.getAvgTimeToNewVacation()
     print('avgTimeToNewVacation', avgTimeToNewVacation)
 

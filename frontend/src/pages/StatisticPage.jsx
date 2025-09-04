@@ -25,7 +25,7 @@ function getFuturesCountriesAndLikesByNumDays(date, setPredictedCountriesAndLike
 
     setIsEditClicked(false)
     setIsProgress(true)
-    fetch('http://localhost:8000/api/futureLikes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'days': diffDays, 'month': -1, 'years': -1 }) })
+    fetch('../api/futureLikes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'days': diffDays, 'month': -1, 'years': -1 }) })
         .then(response => response.json()).then(data => {
             setIsProgress(false)
             setPredictedCountriesAndLikes(data)
@@ -38,7 +38,7 @@ function getFuturesCountriesAndLikesByNumDaysInit(numDays, setPredictedCountries
 ) {
     //כמו הפונקציה למעלה רק בערך defualt של עוד 30 ימים
     setIsProgress(true)
-    fetch('http://localhost:8000/api/futureLikes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'days': numDays, 'month': -1, 'years': -1 }) })
+    fetch('../api/futureLikes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'days': numDays, 'month': -1, 'years': -1 }) })
         .then(response => response.json()).then(data => {
             setIsProgress(false)
             setPredictedCountriesAndLikes(data)

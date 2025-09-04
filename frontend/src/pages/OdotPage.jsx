@@ -17,7 +17,7 @@ export default function odotPage() {
 
     useEffect(() => {
 
-        fetch('http://127.0.0.1:8000/api/hasLogined').then(response => response.json()).then(data => {
+        fetch('../api/hasLogined').then(response => response.json()).then(data => {
             console.log(data)
             if (data['isLogined']) {
 
@@ -38,7 +38,7 @@ export default function odotPage() {
                 {!isLogined ?
                     <Link to="/login" className='itemMenu'>Login</Link> :
                     <div className='itemMenu' onClick={() => {
-                        fetch('http://127.0.0.1:8000/api/logout').then(resposne => resposne.json()).then(data => {
+                        fetch('../api/logout').then(resposne => resposne.json()).then(data => {
                             setIsLogined(false)
                         })
                     }}><p className='logout'>Logout</p></div>

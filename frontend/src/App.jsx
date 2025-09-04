@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import OdotPage from "./pages/OdotPage";
 import StatisticPage from "./pages/StatisticPage";
 import LoginPage from "./pages/LoginPage";
@@ -16,7 +16,9 @@ function App() {
           <Route path="/odot" element={<OdotPage />} />
           <Route path="/statistics" element={<StatisticPage />} />
           <Route path="/" element={<Home />} />
+          <Route path='/404' element={<Page404 />} />
           <Route path='*' element={<Page404 />} />
+
         </Routes>
       </Router>
     </div>

@@ -1,19 +1,31 @@
 import imageStatistica from '../images/s.jpg'
 import '../home.css'
 import imageTriangle from '../images/t2.png'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import notLogined from '../images/not_logined.png'
 import s from '../images/s.jpeg'
 import phone from '../images/phone.jpeg'
 import login from '../images/login.webp'
+import { useLocation } from "react-router-dom";
+
 
 
 export default function Home() {
+    const location = useLocation();
+    const navigator1 = useNavigate();
+
+    fetch('../' + location.pathname).then(res => {
+        console.log(location.pathname)
+        if (!res.ok) {
+            navigator1('/404')
+        }
+    })
     //home page
     const [isLogined, setIsLogined] = useState(false)
 
     useEffect(() => {
+
 
         fetch('../api/hasLogined').then(response => response.json()).then(data => {
             console.log(data)
@@ -34,7 +46,7 @@ export default function Home() {
                 {!isLogined ?
                     <Link to="/login" className='itemMenu' style={{ marginLeft: '700px' }}>Login</Link> :
                     <div className='itemMenu' style={{ marginLeft: '700px' }} onClick={() => {
-                        fetch('http://127.0.0.1:8000/api/logout').then(resposne => resposne.json()).then(data => {
+                        fetch('../api/logout').then(resposne => resposne.json()).then(data => {
                             setIsLogined(false)
                         })
                     }}>LogOut</div>

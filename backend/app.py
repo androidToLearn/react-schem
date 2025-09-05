@@ -24,14 +24,19 @@ from srcs.dal_b.Database import Database
 app = Flask(__name__)
 
 
+app = Flask(__name__, static_folder="dist", static_url_path="")
+
+
 @app.route("/")
-def serve():
-    return send_from_directory("dist", 'index.html')
+def serve_index():
+    return send_from_directory(app.static_folder, "index.html")
+
+# כל קובץ סטטי נוסף (JS, CSS, images)
 
 
-@app.route("/<path:filename>")
-def serveassets(filename):
-    return send_from_directory("dist", filename)
+@app.route("/<path:path>")
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
 
 
 @app.route('/api/login', methods=['POST'])

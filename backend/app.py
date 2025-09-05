@@ -29,9 +29,9 @@ def serve():
     return send_from_directory("dist", 'index.html')
 
 
-@app.route("/assets/<path:filename>")
+@app.route("/<path:filename>")
 def serveassets(filename):
-    return send_from_directory("dist/assets", filename)
+    return send_from_directory("dist", filename)
 
 
 @app.route('/api/login', methods=['POST'])
@@ -202,6 +202,7 @@ def not_404():
     file_path = os.path.join(
         BASE_DIR, 'data', f'is404{str(uuid.getnode())}.json')
     if os.path.exists(file_path):
+        print('removed')
         os.remove(file_path)
     return jsonify({})
 
